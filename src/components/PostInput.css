@@ -1,0 +1,52 @@
+.post-input-container {
+    background-color: var(--bg-sec);
+    padding: 1rem;    
+    width: 70%;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 4px;
+
+}
+
+.post-input-container textarea {
+    width: 100%;
+    min-height: 6rem;
+    resize: none;
+    display: block;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 4px;    
+}
+
+.post-input-container .button-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-input-container button {
+    background-color: var(--ui-main);
+    color: var(--text-ui);    
+    border: 2px solid transparent;
+    padding: 4px 2rem;
+    font-size: large;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.post-input-container button:hover {
+    background-color: var(--ui-main-hover);
+}
+
+.post-input-container button:disabled {
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+
+    color: black;
+}
+
+.error {
+    color: brown;
+    background-color: rgba(15, 20, 25, 0.596);
+    border-radius: 4px;
+    padding: 4px;    
+}
