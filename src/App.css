@@ -57,6 +57,6 @@ body {
 .button:disabled {
   background-color: transparent;
   border: 2px solid var(--border-color);
-  cursor: no-drop;
   color: black;
+  cursor: no-drop;
 }
