@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router";
 import { saveUserNameToStorage } from "../utils/storageHandler";
+import './ProfilePage.css'
 
 
 export default function ProfilePage() {
@@ -13,14 +14,16 @@ export default function ProfilePage() {
     }
 
     return (
-        <div className="user-page-container">
+        <div className="profile-page-container">
             <h1>Profile</h1>
+
             <label htmlFor="user-name">User Name</label>
-            <input value={nameInput} onChange={e => setNameInput(e.target.value)} placeholder="Username..." type="text" id="user-name" />
+            <input value={nameInput} onChange={e => setNameInput(e.target.value)} placeholder="Username..." type="text" name="user-name" id="user-name" />
+
 
             <div className="button-row">
                 <button disabled={!nameInput} onClick={onSubmit}>Submit</button>
-            </div> 
+            </div>
         </div>
     )
 }
