@@ -17,12 +17,14 @@ export default function ProfilePage() {
         <div className="profile-page-container">
             <h1>Profile</h1>
 
-            <label htmlFor="user-name">User Name</label>
-            <input value={nameInput} onChange={e => setNameInput(e.target.value)} placeholder="Username..." type="text" name="user-name" id="user-name" />
+            <div className="input-container">
+                <label htmlFor="user-name">User Name</label>
+                <input value={nameInput} onChange={e => setNameInput(e.target.value)} placeholder="Username..." type="text" name="user-name" id="user-name" />
+            </div>
 
 
             <div className="button-row">
-                <button disabled={!nameInput} onClick={onSubmit}>Submit</button>
+                <button className="button" disabled={!nameInput} onClick={onSubmit}>Submit</button>
             </div>
         </div>
     )

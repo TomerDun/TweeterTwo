@@ -8,11 +8,11 @@ html {
   font-family: "inter", sans-serif;
   --bg-main: #FFFFFF;
   --bg-sec: #F7F9F9;
-  --text-main: #0F1419;  
+  --text-main: #0F1419;
   --text-sec: #536471;
   --text-ui: #F7F9F9;
-  --ui-main:  #1D9BF0;
-  --ui-main-hover:  #107fc9;
+  --ui-main: #1D9BF0;
+  --ui-main-hover: #107fc9;
 
   --border-color: #EFF3F4;
 }
@@ -35,5 +35,28 @@ body {
 }
 
 .unshown {
-  opacity: 0 !important; 
+  opacity: 0 !important;
+}
+
+
+
+.button {
+    background-color: var(--ui-main);
+    color: var(--text-ui);    
+    border: 2px solid transparent;
+    padding: 4px 2rem;
+    font-size: large;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--ui-main-hover);
+}
+
+.button:disabled {
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  cursor: no-drop;
+  color: black;
 }

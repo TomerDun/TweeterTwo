@@ -3,3 +3,24 @@
     margin: auto;
 }
 
+.profile-page-container .button-row {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.profile-page-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.profile-page-container label {
+    font-size: small;
+    padding-left: 6px;
+    /* margin-bottom: 4px; */
+    color: var(--text-sec);
+}
+

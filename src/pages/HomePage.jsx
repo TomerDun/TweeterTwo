@@ -13,34 +13,27 @@ export default function HomePage() {
     const navigate = useNavigate();
     const { posts } = useContext(PostsContext);
 
-    const [postTextInput, setPostTextInput] = useState('');
-    const [userName, setUserName] = useState(null); //TODO: Maybe remove
+    const [postTextInput, setPostTextInput] = useState('');    
 
 
 
     useEffect(() => {
-        updateUserName();
+        const userName = window.localStorage.getItem('username')
+        if (!userName) {
+            console.error('No username, redirecting...')
+            navigate('/profile');
+        }
     }, [])
 
     async function addPost() {
         const newPost = {
             content: postTextInput,
-            userName: userName,
+            userName: loadUserNameFromStorage(),
             date: new Date().toISOString(),
         }
 
         await addPostToServer(newPost);
     }
-
-    function updateUserName() {
-        const newUserName = loadUserNameFromStorage();
-        if (newUserName) setUserName(newUserName);
-        else {
-            console.error('No user name')
-            navigate('/profile')
-        }
-    }
-
 
 
     return (

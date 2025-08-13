@@ -10,7 +10,7 @@ export default function PostInput({ input, onChangeInput, onSend }) {
 
                 <span className={disabled ? 'error' : 'unshown'}>The Tweet cannot contain more then 140 characters</span>
 
-                <button disabled={disabled} onClick={onSend}>Tweet</button>
+                <button className='button' disabled={disabled} onClick={onSend}>Tweet</button>
             </div>
         </div>
     )
