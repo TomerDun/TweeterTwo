@@ -8,3 +8,11 @@ export function loadPostsFromStorage() {
 export function saveToLocaStorage(posts) {
  window.localStorage.setItem('posts', JSON.stringify(posts));
 }
+
+export function saveUserNameToStorage(name) {
+    window.localStorage.setItem('username', name);
+}
+
+export function loadUserNameFromStorage() {
+    return window.localStorage.getItem(username);
+}
