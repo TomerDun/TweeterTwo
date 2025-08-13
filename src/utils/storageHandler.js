@@ -14,5 +14,5 @@ export function saveUserNameToStorage(name) {
 }
 
 export function loadUserNameFromStorage() {
-    return window.localStorage.getItem(username);
+    return window.localStorage.getItem('username');
 }

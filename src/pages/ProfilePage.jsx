@@ -2,10 +2,10 @@ import { useState } from "react"
 import { useNavigate } from "react-router";
 import { saveUserNameToStorage } from "../utils/storageHandler";
 
-const navigate = useNavigate();
 
-export default function UserPage() {
+export default function ProfilePage() {
     const [nameInput, setNameInput] = useState('');
+    const navigate = useNavigate();
 
     function onSubmit() {
         saveUserNameToStorage(nameInput);
@@ -19,8 +19,8 @@ export default function UserPage() {
             <input value={nameInput} onChange={e => setNameInput(e.target.value)} placeholder="Username..." type="text" id="user-name" />
 
             <div className="button-row">
-                <button>Submit</button>
-            </div>
+                <button disabled={!nameInput} onClick={onSubmit}>Submit</button>
+            </div> 
         </div>
     )
 }
