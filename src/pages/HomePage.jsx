@@ -6,6 +6,7 @@ import { loadPostsFromStorage, loadUserNameFromStorage, saveToLocaStorage } from
 import { addPostToServer, fetchPosts } from '../utils/apiHandler';
 import { useNavigate } from 'react-router';
 import { PostsContext } from '../../PostsContext';
+import { supabase } from '../utils/apiHandlerNew';
 
 const USERNAME = 'tomer_codes';
 

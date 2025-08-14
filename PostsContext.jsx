@@ -12,10 +12,10 @@ export default function PostsProvider({ children }) {
 
         loadPosts();
 
-        const interval = setInterval(loadPosts, 30000);
+        // const interval = setInterval(loadPosts, 30000);
 
         return () => {
-            clearInterval(interval);
+            // clearInterval(interval);
         }
     }, [])
 
