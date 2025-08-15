@@ -1,5 +1,4 @@
 import { Children, createContext, useEffect, useState } from "react";
-import { addPostToServer } from "./src/utils/apiHandler";
 import { fetchPosts } from "./src/utils/apiHandlerNew";
 
 export const PostsContext = createContext();
@@ -27,7 +26,7 @@ export default function PostsProvider({ children }) {
 
 
     return (
-        <PostsContext.Provider value={{ posts }}>
+        <PostsContext.Provider value={{ posts, loadPosts }}>
             {children}
         </PostsContext.Provider>
     )

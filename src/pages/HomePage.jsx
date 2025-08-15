@@ -2,19 +2,17 @@ import { useContext, useEffect, useState } from 'react'
 // import './App.css'
 import PostInput from '../components/PostInput'
 import Post from '../components/Post';
-import { loadPostsFromStorage, loadUserNameFromStorage, saveToLocaStorage } from '../utils/storageHandler';
-import { addPostToServer } from '../utils/apiHandler';
+import { loadUserNameFromStorage } from '../utils/storageHandler';
+// import { addPostToServer } from '../utils/apiHandler';
 import { useNavigate } from 'react-router';
 import { PostsContext } from '../../PostsContext';
-import { fetchPosts, supabase } from '../utils/apiHandlerNew';
-
-const USERNAME = 'tomer_codes';
+import { fetchPosts, insertPost } from '../utils/apiHandlerNew';
 
 export default function HomePage() {
     const navigate = useNavigate();
-    const { posts } = useContext(PostsContext);
+    const { posts, loadPosts } = useContext(PostsContext);
 
-    const [postTextInput, setPostTextInput] = useState('');    
+    const [postTextInput, setPostTextInput] = useState('');
 
 
 
@@ -33,13 +31,15 @@ export default function HomePage() {
             date: new Date().toISOString(),
         }
 
-        await addPostToServer(newPost);
+        // await addPostToServer(newPost);
+        await insertPost(newPost);
+        loadPosts();
     }
 
     async function handleGetPosts() {
         const posts = await fetchPosts();
         console.log(posts);
-        
+
     }
 
 
