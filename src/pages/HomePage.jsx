@@ -3,10 +3,10 @@ import { useContext, useEffect, useState } from 'react'
 import PostInput from '../components/PostInput'
 import Post from '../components/Post';
 import { loadPostsFromStorage, loadUserNameFromStorage, saveToLocaStorage } from '../utils/storageHandler';
-import { addPostToServer, fetchPosts } from '../utils/apiHandler';
+import { addPostToServer } from '../utils/apiHandler';
 import { useNavigate } from 'react-router';
 import { PostsContext } from '../../PostsContext';
-import { supabase } from '../utils/apiHandlerNew';
+import { fetchPosts, supabase } from '../utils/apiHandlerNew';
 
 const USERNAME = 'tomer_codes';
 
@@ -36,10 +36,17 @@ export default function HomePage() {
         await addPostToServer(newPost);
     }
 
+    async function handleGetPosts() {
+        const posts = await fetchPosts();
+        console.log(posts);
+        
+    }
+
 
     return (
         <>
             <PostInput onSend={addPost} input={postTextInput} onChangeInput={setPostTextInput} />
+            <button onClick={handleGetPosts}>SB</button>
             <div className='posts-container'>
                 {posts &&
                     posts.sort((a, b) => b.date - a.date)

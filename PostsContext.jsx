@@ -1,5 +1,6 @@
 import { Children, createContext, useEffect, useState } from "react";
-import { addPostToServer, fetchPosts } from "./src/utils/apiHandler";
+import { addPostToServer } from "./src/utils/apiHandler";
+import { fetchPosts } from "./src/utils/apiHandlerNew";
 
 export const PostsContext = createContext();
 
