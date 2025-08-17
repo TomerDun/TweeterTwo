@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
 import NavBar from './components/NavBar'
 import PostsProvider from '../PostsContext'
+import LoginPage from './pages/LoginPage'
+import { AuthProvider } from './auth/AuthContext'
 
 
 function App() {
@@ -13,11 +15,14 @@ function App() {
 
   return (
     <PostsProvider>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/profile' element={<ProfilePage />} />
-      </Routes>
+      <AuthProvider>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          {/* <Route path='/profile' element={<ProfilePage />} /> */}
+          <Route path='/login' element={<LoginPage />} />
+        </Routes>
+      </AuthProvider>
     </PostsProvider>
   )
 }

@@ -1,5 +1,5 @@
 import { Children, createContext, useEffect, useState } from "react";
-import { fetchPosts } from "./src/utils/apiHandlerNew";
+import { fetchPosts } from "./src/utils/supabaseHandler";
 
 export const PostsContext = createContext();
 
@@ -21,6 +21,8 @@ export default function PostsProvider({ children }) {
 
     async function loadPosts() {
         const serverPosts = await fetchPosts();
+        console.log('fetch posts: ', serverPosts);
+        
         setPosts(serverPosts);
     }
 

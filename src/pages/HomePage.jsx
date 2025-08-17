@@ -6,28 +6,20 @@ import { loadUserNameFromStorage } from '../utils/storageHandler';
 // import { addPostToServer } from '../utils/apiHandler';
 import { useNavigate } from 'react-router';
 import { PostsContext } from '../../PostsContext';
-import { fetchPosts, insertPost } from '../utils/apiHandlerNew';
+import { fetchPosts, insertPost } from '../utils/supabaseHandler';
+import { useAuth } from '../auth/AuthContext';
 
 export default function HomePage() {
     const navigate = useNavigate();
     const { posts, loadPosts } = useContext(PostsContext);
+    const {activeUser} = useAuth();
 
     const [postTextInput, setPostTextInput] = useState('');
-
-
-
-    useEffect(() => {
-        const userName = window.localStorage.getItem('username')
-        if (!userName) {
-            console.error('No username, redirecting...')
-            navigate('/profile');
-        }
-    }, [])
 
     async function addPost() {
         const newPost = {
             content: postTextInput,
-            userName: loadUserNameFromStorage(),
+            userName: activeUser,
             date: new Date().toISOString(),
         }
 
@@ -36,17 +28,11 @@ export default function HomePage() {
         loadPosts();
     }
 
-    async function handleGetPosts() {
-        const posts = await fetchPosts();
-        console.log(posts);
-
-    }
 
 
     return (
         <>
             <PostInput onSend={addPost} input={postTextInput} onChangeInput={setPostTextInput} />
-            <button onClick={handleGetPosts}>SB</button>
             <div className='posts-container'>
                 {posts &&
                     posts.sort((a, b) => b.date - a.date)

@@ -6,6 +6,7 @@ export default function NavBar() {
         <nav>
             <NavLink to='/' className='nav-item'>Home</NavLink>
             <NavLink to='/profile' className='nav-item'>Profile</NavLink>
+            <NavLink to='/login' className='nav-item'>Login</NavLink>
         </nav>
     )
 }
