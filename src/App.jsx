@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import PostsProvider from '../PostsContext'
 import LoginPage from './pages/LoginPage'
 import { AuthProvider } from './auth/AuthContext'
+import ProtectedRoute from './auth/ProtectedRoute'
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
       <AuthProvider>
         <NavBar />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <ProtectedRoute>
+            <Route path='/' element={<HomePage />} />
+          </ProtectedRoute>
           {/* <Route path='/profile' element={<ProfilePage />} /> */}
           <Route path='/login' element={<LoginPage />} />
         </Routes>
